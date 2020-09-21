@@ -20,7 +20,8 @@ func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd
 		}
 
 		fmt.Println("Sensor Value is ", ultrasonicSensorVal)
-		lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
+		//lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
+		lcdPrintErr := lcd.Write("test")
 
 		if lcdPrintErr != nil {
 			fmt.Errorf("Error printing to LCD %+v", lcdPrintErr)
