@@ -4,12 +4,13 @@ import (
 	"fmt"
 	"gobot.io/x/gobot"
 	"gobot.io/x/gobot/drivers/aio"
+	"gobot.io/x/gobot/drivers/i2c"
 	g "gobot.io/x/gobot/platforms/dexter/gopigo3"
 	"gobot.io/x/gobot/platforms/raspi"
 	"time"
 )
 
-func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver) {
+func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd *i2c.GroveLcdDriver) {
 	for {
 
 		ultrasonicSensorVal, ultrasonicSensorErr := humiditySensor.Read()
@@ -19,6 +20,11 @@ func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver) {
 		}
 
 		fmt.Println("Sensor Value is ", ultrasonicSensorVal)
+		lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
+
+		if lcdPrintErr != nil {
+			fmt.Errorf("Error printing to LCD %+v", lcdPrintErr)
+		}
 
 		time.Sleep(time.Second)
 	}
@@ -29,9 +35,10 @@ func main() {
 	gopigo3 := g.NewDriver(raspiAdaptor)
 
 	humiditySensor := aio.NewAnalogSensorDriver(gopigo3, "AD_1_1")
+	lcd := i2c.NewGroveLcdDriver(raspiAdaptor)
 
 	mainRobotFunc := func() {
-		robotRunLoop(gopigo3, humiditySensor)
+		robotRunLoop(gopigo3, humiditySensor, lcd)
 	}
 
 	robot := gobot.NewRobot("gopigo3HumiditySensor",
