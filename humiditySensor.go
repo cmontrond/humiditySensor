@@ -13,18 +13,20 @@ import (
 func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd *i2c.GroveLcdDriver) {
 	for {
 
-		ultrasonicSensorVal, ultrasonicSensorErr := humiditySensor.Read()
+		ultrasonicSensorVal, err := humiditySensor.Read()
 
-		if ultrasonicSensorErr != nil {
-			fmt.Errorf("Error reading sensor %+v", ultrasonicSensorErr)
+		if err != nil {
+			fmt.Errorf("Error reading sensor %+v", err)
 		}
 
 		fmt.Println("Sensor Value is ", ultrasonicSensorVal)
-		//lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
-		lcdPrintErr := lcd.Write("test")
 
-		if lcdPrintErr != nil {
-			fmt.Errorf("Error printing to LCD %+v", lcdPrintErr)
+		//lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
+
+		err = lcd.Write("test")
+
+		if err != nil {
+			fmt.Errorf("Error printing to LCD %+v", err)
 		}
 
 		time.Sleep(time.Second)
@@ -44,9 +46,13 @@ func main() {
 
 	robot := gobot.NewRobot("gopigo3HumiditySensor",
 		[]gobot.Connection{raspiAdaptor},
-		[]gobot.Device{gopigo3, humiditySensor},
+		[]gobot.Device{gopigo3, humiditySensor, lcd},
 		mainRobotFunc,
 	)
 
-	robot.Start()
+	err := robot.Start()
+
+	if err != nil {
+		fmt.Errorf("Error starting the robot: %+v", err)
+	}
 }
