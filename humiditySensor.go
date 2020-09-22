@@ -7,6 +7,7 @@ import (
 	"gobot.io/x/gobot/drivers/i2c"
 	g "gobot.io/x/gobot/platforms/dexter/gopigo3"
 	"gobot.io/x/gobot/platforms/raspi"
+	"strconv"
 	"time"
 )
 
@@ -21,9 +22,7 @@ func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd
 
 		fmt.Println("Sensor Value is ", ultrasonicSensorVal)
 
-		//lcdPrintErr := lcd.Write(string(rune(ultrasonicSensorVal)))
-
-		err = lcd.Write("test")
+		err = lcd.Write(strconv.Itoa(ultrasonicSensorVal))
 
 		if err != nil {
 			fmt.Errorf("Error printing to LCD %+v", err)
