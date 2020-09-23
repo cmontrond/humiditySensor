@@ -16,15 +16,15 @@ func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd
 
 		err := lcd.Clear()
 
-		ultrasonicSensorVal, err := humiditySensor.Read()
+		humiditySensorVal, err := humiditySensor.Read()
 
 		if err != nil {
 			fmt.Errorf("Error reading sensor %+v", err)
 		}
 
-		fmt.Println("Sensor Value is ", ultrasonicSensorVal)
+		fmt.Println("Sensor Value is ", humiditySensorVal)
 
-		err = lcd.Write(strconv.Itoa(ultrasonicSensorVal))
+		err = lcd.Write(strconv.Itoa(humiditySensorVal))
 
 		if err != nil {
 			fmt.Errorf("Error printing to LCD %+v", err)
@@ -38,7 +38,7 @@ func main() {
 	raspiAdaptor := raspi.NewAdaptor()
 	gopigo3 := g.NewDriver(raspiAdaptor)
 
-	humiditySensor := aio.NewAnalogSensorDriver(gopigo3, "AD_2_1")
+	humiditySensor := aio.NewAnalogSensorDriver(gopigo3, "AD_2_2")
 	lcd := i2c.NewGroveLcdDriver(raspiAdaptor)
 
 	mainRobotFunc := func() {
