@@ -38,7 +38,7 @@ func main() {
 	raspiAdaptor := raspi.NewAdaptor()
 	gopigo3 := g.NewDriver(raspiAdaptor)
 
-	humiditySensor := aio.NewGroveTemperatureSensorDriver(gopigo3, "AD_2_2")
+	humiditySensor := aio.NewGroveTemperatureSensorDriver(gopigo3, "AD_2_1")
 	lcd := i2c.NewGroveLcdDriver(raspiAdaptor)
 
 	mainRobotFunc := func() {
