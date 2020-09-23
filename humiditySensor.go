@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd *i2c.GroveLcdDriver) {
+func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.GroveTemperatureSensorDriver, lcd *i2c.GroveLcdDriver) {
 	for {
 
 		err := lcd.Clear()
@@ -38,7 +38,7 @@ func main() {
 	raspiAdaptor := raspi.NewAdaptor()
 	gopigo3 := g.NewDriver(raspiAdaptor)
 
-	humiditySensor := aio.NewAnalogSensorDriver(gopigo3, "AD_2_2")
+	humiditySensor := aio.NewGroveTemperatureSensorDriver(gopigo3, "AD_2_2")
 	lcd := i2c.NewGroveLcdDriver(raspiAdaptor)
 
 	mainRobotFunc := func() {
