@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="fa827e79-342d-4093-aa5f-afe393016058" name="Default Changelist" comment="grove temperature sensor">
+    <list default="true" id="fa827e79-342d-4093-aa5f-afe393016058" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/humiditySensor.go" beforeDir="false" afterPath="$PROJECT_DIR$/humiditySensor.go" afterDir="false" />
     </list>
@@ -108,7 +108,14 @@
       <option name="project" value="LOCAL" />
       <updated>1600879340067</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="change pin values">
+      <created>1600881657917</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1600881657917</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -123,13 +130,14 @@
     <MESSAGE value="fix humidity sensor pin" />
     <MESSAGE value="fix naming and pin" />
     <MESSAGE value="grove temperature sensor" />
-    <option name="LAST_COMMIT_MESSAGE" value="grove temperature sensor" />
+    <MESSAGE value="change pin values" />
+    <option name="LAST_COMMIT_MESSAGE" value="change pin values" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1600879651797">
+    <state x="393" y="0" key="CommitChangelistDialog2" timestamp="1600881657549">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600879651797" />
+    <state x="393" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1600881657549" />
     <state x="633" y="310" key="Github.ShareDialog" timestamp="1600708545364">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -142,9 +150,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="57" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1600818813708" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600879341129">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1600881660683">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600879341129" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1600881660683" />
   </component>
 </project>
