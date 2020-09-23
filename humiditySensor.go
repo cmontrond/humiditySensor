@@ -14,6 +14,8 @@ import (
 func robotRunLoop(gopigo3 *g.Driver, humiditySensor *aio.AnalogSensorDriver, lcd *i2c.GroveLcdDriver) {
 	for {
 
+		err := lcd.Clear()
+
 		ultrasonicSensorVal, err := humiditySensor.Read()
 
 		if err != nil {
